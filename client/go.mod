@@ -1,4 +1,4 @@
-module github.com/lucaspopp0/grpc-poc/server
+module github.com/lucaspopp0/grpc-poc/client
 
 go 1.24.4
 
