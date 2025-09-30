@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	addr = flag.String("addr", "localhost:50051", "the address to connect to")
+	addr = flag.String("addr", "localhost:18080", "the address to connect to")
 	id   = flag.String("id", "test-123", "the thing ID to get")
 )
 
@@ -27,7 +27,7 @@ func main() {
 
 	c := pb.NewExampleAPIClient(conn)
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	log.Printf("Getting thing with ID: %s", *id)

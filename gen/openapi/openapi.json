@@ -1,0 +1,176 @@
+{
+  "components": {
+    "schemas": {
+      "apiGetThingResponse": {
+        "properties": {
+          "thing": {
+            "$ref": "#/components/schemas/modelThing"
+          }
+        },
+        "type": "object"
+      },
+      "apiPutThingResponse": {
+        "properties": {
+          "thing": {
+            "$ref": "#/components/schemas/modelThing"
+          }
+        },
+        "type": "object"
+      },
+      "modelThing": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "protobufAny": {
+        "additionalProperties": {},
+        "properties": {
+          "@type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "rpcStatus": {
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/components/schemas/protobufAny"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "api/api.proto",
+    "version": "version not set"
+  },
+  "openapi": "3.0.3",
+  "paths": {
+    "/v1/things/{id}": {
+      "get": {
+        "operationId": "ExampleAPI_GetThing",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apiGetThingResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rpcStatus"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "tags": [
+          "ExampleAPI"
+        ]
+      }
+    },
+    "/v1/things/{thing.id}": {
+      "put": {
+        "operationId": "ExampleAPI_PutThing",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "thing.id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "thing"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apiPutThingResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/rpcStatus"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "tags": [
+          "ExampleAPI"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ExampleAPI"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ syntax = "proto3";
 package api;
 
 import "model/thing.proto";
+import "google/api/annotations.proto";
 
 option go_package = "github.com/lucaspopp0/grpc-poc/gen/go/api";
 
@@ -23,6 +24,15 @@ message PutThingResponse {
 }
 
 service ExampleAPI {
-  rpc GetThing(GetThingRequest) returns (GetThingResponse);
-  rpc PutThing(PutThingRequest) returns (PutThingResponse);
+  rpc GetThing(GetThingRequest) returns (GetThingResponse) {
+    option (google.api.http) = {
+      get: "/v1/things/{id}"
+    };
+  }
+  rpc PutThing(PutThingRequest) returns (PutThingResponse) {
+    option (google.api.http) = {
+      put: "/v1/things/{thing.id}"
+      body: "thing"
+    };
+  }
 }

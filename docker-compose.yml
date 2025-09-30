@@ -3,5 +3,5 @@ services:
     container_name: service
     image: "lucaspopp0/grpc-poc:latest"
     ports:
-      - "8083:8083"
+      - "8080:8080"
       - "18080:18080"
