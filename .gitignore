@@ -1,0 +1,44 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# macOS
+**/.DS_Store
+
+# IDE
+.vscode/
+.idea/
+/vendor
+
+# Dev builds
+**/build/
+**/dist/
+
+# Tests
+**/tmp/
+*.out
+
+.terragrunt-cache
+**/volume/
+
+# ignore code scans triggered locally
+.scannerwork
+
+live-*/live*
+**/aventus-creds.json
+
+**/__pycache__/
+node_modules
+
+release-cadence-tests/ts-sdk/*/package-lock.json
+pkg/**/spec.yml
+
+checkpoints.yml.tmp
+
+live-asset-state/.temporal-docker-compose

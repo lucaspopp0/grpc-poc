@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package model;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/lucaspopp0/grpc-poc/gen/go/model";
+
+message Thing {
+    string id = 1;
+    string name = 2;
+    
+    google.protobuf.Timestamp created_at = 3;
+}

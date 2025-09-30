@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+
+import "model/thing.proto";
+
+option go_package = "github.com/lucaspopp0/grpc-poc/gen/go/api";
+
+message GetThingRequest {
+  string id = 1;
+}
+
+message GetThingResponse {
+  model.Thing thing = 1;
+}
+
+message PutThingRequest {
+  model.Thing thing = 1;
+}
+
+message PutThingResponse {
+  model.Thing thing = 1;
+}
+
+service ExampleAPI {
+  rpc GetThing(GetThingRequest) returns (GetThingResponse);
+  rpc PutThing(PutThingRequest) returns (PutThingResponse);
+}
