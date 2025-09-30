@@ -42,3 +42,4 @@ pkg/**/spec.yml
 checkpoints.yml.tmp
 
 live-asset-state/.temporal-docker-compose
+*-linux

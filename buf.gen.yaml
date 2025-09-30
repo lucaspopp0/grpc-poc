@@ -10,3 +10,4 @@ plugins:
     out: gen/go
     opt:
       - paths=source_relative
+  
