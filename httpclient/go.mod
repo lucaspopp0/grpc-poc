@@ -1,3 +1,6 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module github.com/lucaspopp0/grpc-poc/httpclient
 
 go 1.18
+
+require (
+)

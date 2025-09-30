@@ -36,14 +36,14 @@ gen:
 		--openapiv2_out=gen/openapi --openapiv2_opt=allow_merge=true,merge_file_name=api \
 		proto/**/*.proto
 
-	rm -rf third_party
-
 	go run ./server/openapi2to3/main.go && rm gen/openapi/api.swagger.json
 
 	docker run --rm -v "$(shell pwd):/local" openapitools/openapi-generator-cli generate \
 		-i /local/gen/openapi/openapi.json \
 		-g go \
 		-o /local/httpclient \
+		--git-user-id lucaspopp0 \
+		--git-repo-id grpc-poc/httpclient \
 		--additional-properties=packageName=httpclient
 
 .PHONY: docker-build

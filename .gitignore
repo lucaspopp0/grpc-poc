@@ -43,3 +43,5 @@ checkpoints.yml.tmp
 
 live-asset-state/.temporal-docker-compose
 *-linux
+
+third_party
