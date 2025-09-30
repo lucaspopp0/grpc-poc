@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	addr = flag.String("addr", "localhost:18080", "the address to connect to")
+	addr = flag.String("addr", "127.0.0.1:18080", "the address to connect to")
 	id   = flag.String("id", "test-123", "the thing ID to get")
 )
 
