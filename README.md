@@ -40,7 +40,7 @@ curl http://localhost:8080/v1/things/test-123
 ## API Endpoints
 
 - `GET /v1/things/{id}` - Get a thing
-- `PUT /v1/things/{thing.id}` - Update a thing
+- `PUT /v1/things` - Update a thing
 
 ## Workspaces
 
