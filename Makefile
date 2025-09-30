@@ -40,6 +40,12 @@ gen:
 
 	go run ./server/openapi2to3/main.go && rm gen/openapi/api.swagger.json
 
+	docker run --rm -v "$(shell pwd):/local" openapitools/openapi-generator-cli generate \
+		-i /local/gen/openapi/openapi.json \
+		-g go \
+		-o /local/httpclient \
+		--additional-properties=packageName=httpclient
+
 .PHONY: docker-build
 docker-build: tidy
 	GOOS=linux CGO_ENABLED=0 go -C server build -tags netgo -o ../server-linux

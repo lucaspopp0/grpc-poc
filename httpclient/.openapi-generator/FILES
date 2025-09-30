@@ -1,0 +1,14 @@
+.gitignore
+README.md
+api_example_api.go
+client.go
+configuration.go
+go.mod
+go.sum
+model_api_get_thing_response.go
+model_api_put_thing_response.go
+model_model_thing.go
+model_protobuf_any.go
+model_rpc_status.go
+response.go
+utils.go
