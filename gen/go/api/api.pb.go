@@ -211,11 +211,12 @@ const file_api_api_proto_rawDesc = "" +
 	"\x0fPutThingRequest\x12\"\n" +
 	"\x05thing\x18\x01 \x01(\v2\f.model.ThingR\x05thing\"6\n" +
 	"\x10PutThingResponse\x12\"\n" +
-	"\x05thing\x18\x01 \x01(\v2\f.model.ThingR\x05thing2\xbd\x01\n" +
+	"\x05thing\x18\x01 \x01(\v2\f.model.ThingR\x05thing2\xb2\x01\n" +
 	"\n" +
 	"ExampleAPI\x12P\n" +
-	"\bGetThing\x12\x14.api.GetThingRequest\x1a\x15.api.GetThingResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/things/{id}\x12]\n" +
-	"\bPutThing\x12\x14.api.PutThingRequest\x1a\x15.api.PutThingResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x05thing\x1a\x15/v1/things/{thing.id}B+Z)github.com/lucaspopp0/grpc-poc/gen/go/apib\x06proto3"
+	"\bGetThing\x12\x14.api.GetThingRequest\x1a\x15.api.GetThingResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/things/{id}\x12R\n" +
+	"\bPutThing\x12\x14.api.PutThingRequest\x1a\x15.api.PutThingResponse\"\x19\x82\xd3\xe4\x93\x02\x13:\x05thing\x1a\n" +
+	"/v1/thingsB+Z)github.com/lucaspopp0/grpc-poc/gen/go/apib\x06proto3"
 
 var (
 	file_api_api_proto_rawDescOnce sync.Once

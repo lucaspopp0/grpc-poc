@@ -67,25 +67,26 @@
   },
   "openapi": "3.0.3",
   "paths": {
-    "/v1/things/{id}": {
-      "get": {
-        "operationId": "ExampleAPI_GetThing",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
+    "/v1/things": {
+      "put": {
+        "operationId": "ExampleAPI_PutThing",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/modelThing"
+              }
             }
-          }
-        ],
+          },
+          "required": true,
+          "x-originalParamName": "thing"
+        },
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apiGetThingResponse"
+                  "$ref": "#/components/schemas/apiPutThingResponse"
                 }
               }
             },
@@ -107,45 +108,25 @@
         ]
       }
     },
-    "/v1/things/{thing.id}": {
-      "put": {
-        "operationId": "ExampleAPI_PutThing",
+    "/v1/things/{id}": {
+      "get": {
+        "operationId": "ExampleAPI_GetThing",
         "parameters": [
           {
             "in": "path",
-            "name": "thing.id",
+            "name": "id",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "createdAt": {
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "thing"
-        },
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apiPutThingResponse"
+                  "$ref": "#/components/schemas/apiGetThingResponse"
                 }
               }
             },

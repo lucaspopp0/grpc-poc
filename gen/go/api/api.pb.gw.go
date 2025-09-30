@@ -78,21 +78,12 @@ func request_ExampleAPI_PutThing_0(ctx context.Context, marshaler runtime.Marsha
 	var (
 		protoReq PutThingRequest
 		metadata runtime.ServerMetadata
-		err      error
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq.Thing); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	if req.Body != nil {
 		_, _ = io.Copy(io.Discard, req.Body)
-	}
-	val, ok := pathParams["thing.id"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "thing.id")
-	}
-	err = runtime.PopulateFieldFromPath(&protoReq, "thing.id", val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "thing.id", err)
 	}
 	msg, err := client.PutThing(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
@@ -102,18 +93,9 @@ func local_request_ExampleAPI_PutThing_0(ctx context.Context, marshaler runtime.
 	var (
 		protoReq PutThingRequest
 		metadata runtime.ServerMetadata
-		err      error
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq.Thing); err != nil && !errors.Is(err, io.EOF) {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	val, ok := pathParams["thing.id"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "thing.id")
-	}
-	err = runtime.PopulateFieldFromPath(&protoReq, "thing.id", val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "thing.id", err)
 	}
 	msg, err := server.PutThing(ctx, &protoReq)
 	return msg, metadata, err
@@ -151,7 +133,7 @@ func RegisterExampleAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux,
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.ExampleAPI/PutThing", runtime.WithHTTPPathPattern("/v1/things/{thing.id}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.ExampleAPI/PutThing", runtime.WithHTTPPathPattern("/v1/things"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -226,7 +208,7 @@ func RegisterExampleAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.ExampleAPI/PutThing", runtime.WithHTTPPathPattern("/v1/things/{thing.id}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.ExampleAPI/PutThing", runtime.WithHTTPPathPattern("/v1/things"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -244,7 +226,7 @@ func RegisterExampleAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux,
 
 var (
 	pattern_ExampleAPI_GetThing_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "things", "id"}, ""))
-	pattern_ExampleAPI_PutThing_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "things", "thing.id"}, ""))
+	pattern_ExampleAPI_PutThing_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "things"}, ""))
 )
 
 var (
